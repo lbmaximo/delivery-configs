@@ -20,10 +20,10 @@ spring:
         #platform: mysql
         #url: jdbc:mysql://localhost/deliveryorder?verifyServerCertificate=false&useSSL=false&requireSSL=false
         #username: root
+        username: postgres
+        password: postgres
         driver-class-name: org.postgresql.Driver
         url: jdbc:postgresql://localhost:5432/deliveryorder?verifyServerCertificate=false&useSSL=false&requireSSL=false
-	      username: postgres
-        password: postgres
     jpa:
         #database-platform: org.hibernate.dialect.MySQLDialect
         database-platform: org.hibernate.dialect.PostgreSQLDialect

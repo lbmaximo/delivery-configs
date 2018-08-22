@@ -25,13 +25,13 @@ spring:
           enabled: true
       routes:
       - id: delivery-order-service
-        uri: lb://DELIVERY-ORDER-SERVICE
+        uri: lb://delivery-order-service
         predicates:
         - Path=/api/orders/**
         filters:
         - RewritePath=/api/orders/(?<path>.*), /$\{path}
       - id: delivery-payments-service
-        uri: lb://DELIVERY-PAYMENTS-SERVICE
+        uri: lb://delivery-payments-service
         predicates:
         - Path=/api/payments/**
         filters:

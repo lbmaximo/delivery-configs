@@ -1,0 +1,31 @@
+server:
+  port: 9095
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: delivery-order-service
+        uri: lb://delivery-order-service
+        predicates:
+        - Path=/api/orders/**
+        filters:
+        - RewritePath=/api/orders/(?<path>.*), /$\{path}
+      - id: delivery-payments-service
+        uri: lb://delivery-payments-service
+        predicates:
+        - Path=/api/payments/**
+        filters:
+        - RewritePath=/api/payments/(?<path>.*), /$\{path}

@@ -24,15 +24,23 @@ spring:
         locator:
           enabled: true
       routes:
-      - id: delivery-order-service
-        uri: lb://delivery-order-service
-        predicates:
-        - Path=/api/orders/**
-        filters:
-        - RewritePath=/api/orders/(?<path>.*), /$\{path}
-      - id: delivery-payments-service
-        uri: lb://delivery-payments-service
-        predicates:
-        - Path=/api/payments/**
-        filters:
-        - RewritePath=/api/payments/(?<path>.*), /$\{path}
+        orders:
+          path: /api/orders/**
+          serviceId: delivery-order-service
+        payments:
+          path: /api/payments/**
+          serviceId: delivery-payments-service
+      
+      
+#      - id: delivery-order-service
+#        uri: lb://delivery-order-service
+#        predicates:
+#        - Path=/api/orders/**
+#        filters:
+#        - RewritePath=/api/orders/(?<path>.*), /$\{path}
+#      - id: delivery-payments-service
+#        uri: lb://delivery-payments-service
+#        predicates:
+#        - Path=/api/payments/**
+#        filters:
+#        - RewritePath=/api/payments/(?<path>.*), /$\{path}

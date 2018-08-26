@@ -23,7 +23,7 @@ security:
   oauth2:
     resource:
       userInfoUri: ${authserver.hostname}/user
-      id: orders
+      id: zuul
 zuul:
   prefix: /api
   routes: 

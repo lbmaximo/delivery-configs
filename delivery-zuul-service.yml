@@ -24,14 +24,21 @@ security:
     resource:
       userInfoUri: ${authserver.hostname}/user
       id: zuul
+    client:
+      access-token-uri: ${authserver.hostname}/oauth/token
+      user-authorization-uri: ${authserver.hostname}/oauth/register
+      client-id: web_app
+
 zuul:
   prefix: /api
   routes: 
     orders:
       path: /orders/**
+      sensitiveHeaders:
       serviceId: delivery-order-service
     payments:
       path: /payments/**
+      sensitiveHeaders:
       serviceId: delivery-payments-service
 
 #auth-server=http://localhost:8901/authserver

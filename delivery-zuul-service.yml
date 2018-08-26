@@ -16,20 +16,39 @@ eureka:
 logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-              
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        orders:
-          path: /api/orders/**
-          serviceId: delivery-order-service
-        payments:
-          path: /api/payments/**
-          serviceId: delivery-payments-service
+
+authserver:
+  hostname: http://localhost:9092
+security:
+  oauth2:
+    resource:
+      userInfoUri: ${authserver.hostname}/user
+      id: orders
+zuul:
+  prefix: /api
+  routes: 
+    orders:
+      path: /orders/**
+      serviceId: delivery-order-service
+    payments:
+      path: /payments/**
+      serviceId: delivery-payments-service
+
+
+
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#      routes:
+#        orders:
+#          path: /api/orders/**
+#          serviceId: delivery-order-service
+#        payments:
+#          path: /api/payments/**
+#          serviceId: delivery-payments-service
       
       
 #      - id: delivery-order-service

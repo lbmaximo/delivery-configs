@@ -34,7 +34,13 @@ zuul:
       path: /payments/**
       serviceId: delivery-payments-service
 
-
+#auth-server=http://localhost:8901/authserver
+#security.oauth2.client.client-id=client1
+#security.oauth2.client.client-secret=client1secret
+#security.oauth2.client.scope=server
+#security.oauth2.client.access-token-uri=${auth-server}/oauth/token
+#security.oauth2.client.user-authorization-uri=${auth-server}/oauth/authorize
+#security.oauth2.resource.user-info-uri=${auth-server}/userInfo
 
 #spring:
 #  cloud:

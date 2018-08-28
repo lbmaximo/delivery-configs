@@ -41,12 +41,12 @@ zuul:
   routes: 
     orders:
       path: /orders/**
-      sensitiveHeaders:
       serviceId: delivery-order-service
+      stripPrefix: true
     payments:
       path: /payments/**
-      sensitiveHeaders:
       serviceId: delivery-payments-service
+      stripPrefix: true
 
 #auth-server=http://localhost:8901/authserver
 #security.oauth2.client.client-id=client1

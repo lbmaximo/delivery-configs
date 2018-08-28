@@ -41,11 +41,11 @@ zuul:
     orders:
       path: /orders/**
       serviceId: delivery-order-service
-      stripPrefix: false
+      #stripPrefix: false
     payments:
       path: /payments/**
       serviceId: delivery-payments-service
-      stripPrefix: false
+      #stripPrefix: false
 
 #auth-server=http://localhost:8901/authserver
 #security.oauth2.client.client-id=client1

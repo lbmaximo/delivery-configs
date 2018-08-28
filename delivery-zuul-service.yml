@@ -37,7 +37,6 @@ security:
       id: zuul
       
 zuul:
-  prefix: /api
   routes: 
     orders:
       path: /orders/**

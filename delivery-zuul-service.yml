@@ -27,7 +27,7 @@ security:
     client:
       access-token-uri: ${authserver.hostname}/oauth/token
       user-authorization-uri: ${authserver.hostname}/oauth/register
-      client-id: web_app
+      client-id: zuul
 #authserver:
 #  hostname: http://localhost:9092
 #security:
@@ -48,7 +48,7 @@ zuul:
       serviceId: delivery-payments-service
       #stripPrefix: false
     auth:
-      path: /**
+      path: /authentication/**
       serviceId: delivery-auth-server
       #stripPrefix: false
 

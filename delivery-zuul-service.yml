@@ -47,6 +47,10 @@ zuul:
       path: /payments/**
       serviceId: delivery-payments-service
       #stripPrefix: false
+    auth:
+      path: /**
+      serviceId: delivery-auth-server
+      #stripPrefix: false
 
 #auth-server=http://localhost:8901/authserver
 #security.oauth2.client.client-id=client1

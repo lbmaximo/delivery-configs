@@ -20,13 +20,18 @@ logging:
 authserver:
   hostname: http://localhost:9092
 security:
+  basic:
+    enabled: false
   oauth2:
     resource:
-      userInfoUri: ${authserver.hostname}/user
+      #userInfoUri: ${authserver.hostname}/user
+      userInfoUri: http://localhost:9095/user
       id: zuul
     client:
-      access-token-uri: ${authserver.hostname}/oauth/token
-      user-authorization-uri: ${authserver.hostname}/oauth/register
+      accessTokenUri: http://localhost:9095/uaa/oauth/token
+      userAuthorizationUri: http://localhost:9095/uaa/oauth/authorize
+      #access-token-uri: ${authserver.hostname}/oauth/token
+      #user-authorization-uri: ${authserver.hostname}/oauth/register
       client-id: zuul
 #authserver:
 #  hostname: http://localhost:9092
@@ -48,9 +53,9 @@ zuul:
       serviceId: delivery-payments-service
       #stripPrefix: false
     auth:
-      path: /authentication/**
+      path: /uaa/**
       serviceId: delivery-auth-server
-      #stripPrefix: false
+      stripPrefix: false
 
 #auth-server=http://localhost:8901/authserver
 #security.oauth2.client.client-id=client1

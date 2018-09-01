@@ -28,15 +28,16 @@ logging:
 #      access-token-uri: ${authserver.hostname}/oauth/token
 #      user-authorization-uri: ${authserver.hostname}/oauth/register
 #      client-id: web_app
-authserver:
-  hostname: http://localhost:9092
-security:
-  oauth2:
-    resource:
-      userInfoUri: ${authserver.hostname}/user
-      id: zuul
+#authserver:
+#  hostname: http://localhost:9092
+#security:
+#  oauth2:
+#    resource:
+#      userInfoUri: ${authserver.hostname}/user
+#      id: zuul
       
 zuul:
+  prefix: /api
   routes: 
     orders:
       path: /orders/**

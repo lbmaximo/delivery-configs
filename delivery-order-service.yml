@@ -32,10 +32,10 @@ spring:
             ddl-auto: create
         show-sql: true
 
-#authserver:
-#  hostname: http://localhost:9092
-#security:
-#  oauth2:
-#    resource:
-#      userInfoUri: ${authserver.hostname}/user
-#      id: orders
+authserver:
+  hostname: http://localhost:9092
+security:
+  oauth2:
+    resource:
+      userInfoUri: ${authserver.hostname}/user
+      id: orders

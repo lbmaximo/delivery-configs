@@ -17,17 +17,6 @@ logging:
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
-#authserver:
-#  hostname: http://localhost:9092
-#security:
-#  oauth2:
-#    resource:
-#      userInfoUri: ${authserver.hostname}/user
-#      id: zuul
-#    client:
-#      access-token-uri: ${authserver.hostname}/oauth/token
-#      user-authorization-uri: ${authserver.hostname}/oauth/register
-#      client-id: web_app
 authserver:
   hostname: http://localhost:9092
 security:
@@ -35,6 +24,17 @@ security:
     resource:
       userInfoUri: ${authserver.hostname}/user
       id: zuul
+    client:
+      access-token-uri: ${authserver.hostname}/oauth/token
+      user-authorization-uri: ${authserver.hostname}/oauth/register
+      client-id: web_app
+#authserver:
+#  hostname: http://localhost:9092
+#security:
+#  oauth2:
+#    resource:
+#      userInfoUri: ${authserver.hostname}/user
+#      id: zuul
       
 zuul:
   prefix: /api

@@ -26,11 +26,11 @@ security:
   oauth2:
     resource:
       #userInfoUri: ${authserver.hostname}/user
-      userInfoUri: http://localhost:9095/user
+      userInfoUri: http://localhost:9092/user
       id: zuul
     client:
-      accessTokenUri: http://localhost:9095/uaa/oauth/token
-      userAuthorizationUri: http://localhost:9095/uaa/oauth/authorize
+      accessTokenUri: http://localhost:9092/uaa/oauth/token
+      userAuthorizationUri: http://localhost:9092/uaa/oauth/authorize
       #access-token-uri: ${authserver.hostname}/oauth/token
       #user-authorization-uri: ${authserver.hostname}/oauth/register
       client-id: zuul

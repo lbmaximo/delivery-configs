@@ -37,5 +37,6 @@ authserver:
 security:
   oauth2:
     resource:
+      loadBalanced: true
       userInfoUri: ${authserver.hostname}/user
       id: orders

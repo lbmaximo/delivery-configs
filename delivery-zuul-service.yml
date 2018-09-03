@@ -30,10 +30,10 @@ security:
       #access-token-uri: ${authserver.hostname}/oauth/token
       #user-authorization-uri: ${authserver.hostname}/oauth/register
       client-id: zuul
-    #resource:
+    resource:
       #userInfoUri: ${authserver.hostname}/user
-    #  userInfoUri: http://localhost:9092/user
-    #  id: zuul
+      userInfoUri: http://localhost:9092/user
+      id: zuul
 
 #authserver:
 #  hostname: http://localhost:9092
